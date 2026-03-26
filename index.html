@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이한규 — iOS Developer</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0a0a;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .header h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .header p {
+      font-size: 1.1rem;
+      color: #888;
+    }
+
+    /* Projects */
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .project-card {
+      background: #141414;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 28px;
+      transition: border-color 0.2s, transform 0.2s;
+      cursor: default;
+    }
+
+    .project-card:hover {
+      border-color: #444;
+      transform: translateY(-2px);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .project-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    .tag-flutter { background: #1a237e; color: #90caf9; }
+    .tag-unity { background: #1b2a1b; color: #a5d6a7; }
+    .tag-ios { background: #2a1a1a; color: #ef9a9a; }
+    .tag-web { background: #2a2a1a; color: #fff59d; }
+    .tag-supabase { background: #1a2a2a; color: #80cbc4; }
+    .tag-nakama { background: #2a1a2a; color: #ce93d8; }
+
+    .project-desc {
+      color: #999;
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .project-links a {
+      font-size: 0.85rem;
+      color: #666;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .project-links a:hover {
+      color: #fff;
+    }
+
+    /* Status badge */
+    .status {
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .status-dev { background: #2a2a1a; color: #ffd54f; }
+    .status-live { background: #1b2a1b; color: #81c784; }
+    .status-planning { background: #1a1a2a; color: #90caf9; }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid #222;
+    }
+
+    .footer a {
+      color: #666;
+      text-decoration: none;
+      margin: 0 12px;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer a:hover { color: #fff; }
+
+    /* Contact */
+    .contact {
+      text-align: center;
+      margin-top: 16px;
+      color: #555;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 40px 16px; }
+      .header h1 { font-size: 1.8rem; }
+      .project-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>이한규</h1>
+      <p>iOS Developer</p>
+    </header>
+
+    <section class="projects">
+
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name">GTR — Global Trader Run</span>
+          <span class="status status-dev">개발 중</span>
+        </div>
+        <p class="project-desc">실제 주식/날씨 데이터가 게임 경제에 반영되는 힐링 모바일 게임. 6개국 실시간 데이터, NPC 편지, 방 꾸미기.</p>
+        <div class="project-tags">
+          <span class="tag tag-unity">Unity</span>
+          <span class="tag tag-nakama">Nakama</span>
+          <span class="tag tag-ios">iOS</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/kyustudyo/GTR">GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name">Measure</span>
+          <span class="status status-live">배포됨</span>
+        </div>
+        <p class="project-desc">레퍼런스 이미지에서 가구 높이 비율을 측정하고 JSON으로 출력하는 도구. AI 에이전트와 Unity 연동.</p>
+        <div class="project-tags">
+          <span class="tag tag-flutter">Flutter</span>
+          <span class="tag tag-web">Web</span>
+          <span class="tag tag-ios">iOS</span>
+        </div>
+        <div class="project-links">
+          <a href="https://measure-cwm.pages.dev">Live</a>
+          <a href="https://github.com/kyustudyo/measure">GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name">밥먹어쒀</span>
+          <span class="status status-planning">기획 완료</span>
+        </div>
+        <p class="project-desc">친구/연인 간 건강 루틴(영양제, 수면, 운동)을 달력으로 공유하는 앱.</p>
+        <div class="project-tags">
+          <span class="tag tag-flutter">Flutter</span>
+          <span class="tag tag-supabase">Supabase</span>
+          <span class="tag tag-ios">iOS</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/kyustudyo/bob">GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name">UAPS</span>
+          <span class="status status-dev">개발 중</span>
+        </div>
+        <p class="project-desc">유니버설 앱 플랫폼 서비스.</p>
+        <div class="project-tags">
+          <span class="tag tag-web">Web</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/kyustudyo/Uaps">GitHub</a>
+        </div>
+      </div>
+
+    </section>
+
+    <footer class="footer">
+      <a href="https://github.com/kyustudyo">GitHub</a>
+      <div class="contact">kyustudyo@github</div>
+    </footer>
+  </div>
+</body>
+</html>
