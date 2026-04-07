@@ -1,5 +1,5 @@
 {
   "codeAssist": {
-    "instructionFiles": ["GEMINI.md", "claude-rules/BEST_PRACTICES.md"]
+    "instructionFiles": ["GEMINI.md", "CLAUDE.md", "claude-rules/BEST_PRACTICES.md"]
   }
 }
