@@ -10,9 +10,11 @@
 - `inbox/` 확인 — 파일 있으면 읽고 조치 후 삭제
 - `work-logs/work-log.md` 읽고 이전 상태 파악
 
-## 디자인 작업
+## 디자인 작업 (절대 규칙)
 - 디자인 폴더: `design/` (프로젝트 루트)
-- **디자인 작업 시 반드시 읽기**: `claude-rules/guides/design-workflow.md`
+- **디자인 작업 전 반드시 `claude-rules/guides/design-workflow.md`를 처음부터 끝까지 읽어라**
+- 이 파일에 폰트 규칙, 모바일 우선, HTML→Dart 이식, 폴더 구조 등 모든 디자인 규칙이 있다
+- design-workflow.md를 읽지 않고 디자인 규칙을 임의로 만들지 마라
 
 ## 참고 (가이드)
 - 베스트 프랙티스: `claude-rules/BEST_PRACTICES.md`
