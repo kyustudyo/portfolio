@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>이한규 — iOS Developer</title>
+  <title>이한규 — Cross-Platform Developer</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -23,7 +23,7 @@
     /* Header */
     .header {
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 48px;
     }
 
     .header h1 {
@@ -33,25 +33,61 @@
       margin-bottom: 8px;
     }
 
-    .header p {
+    .header .role {
       font-size: 1.1rem;
       color: #888;
+      margin-bottom: 16px;
+    }
+
+    .header .bio {
+      font-size: 0.95rem;
+      color: #999;
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Skills */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin: 24px 0 48px;
+    }
+
+    .skill {
+      font-size: 0.8rem;
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid #333;
+      color: #aaa;
+    }
+
+    /* Section */
+    .section-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 20px;
     }
 
     /* Projects */
     .projects {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 16px;
+      margin-bottom: 48px;
     }
 
     .project-card {
       background: #141414;
       border: 1px solid #222;
       border-radius: 12px;
-      padding: 28px;
+      padding: 24px;
       transition: border-color 0.2s, transform 0.2s;
-      cursor: default;
     }
 
     .project-card:hover {
@@ -63,24 +99,25 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
 
     .project-name {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 600;
       color: #fff;
     }
 
     .project-tags {
       display: flex;
-      gap: 8px;
+      gap: 6px;
       flex-wrap: wrap;
+      margin-bottom: 12px;
     }
 
     .tag {
-      font-size: 0.75rem;
-      padding: 3px 10px;
+      font-size: 0.7rem;
+      padding: 2px 8px;
       border-radius: 20px;
       font-weight: 500;
     }
@@ -91,11 +128,12 @@
     .tag-web { background: #2a2a1a; color: #fff59d; }
     .tag-supabase { background: #1a2a2a; color: #80cbc4; }
     .tag-nakama { background: #2a1a2a; color: #ce93d8; }
+    .tag-html { background: #2a2a1a; color: #ffe082; }
 
     .project-desc {
       color: #999;
-      font-size: 0.95rem;
-      margin-bottom: 16px;
+      font-size: 0.9rem;
+      margin-bottom: 12px;
     }
 
     .project-links {
@@ -104,19 +142,17 @@
     }
 
     .project-links a {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: #666;
       text-decoration: none;
       transition: color 0.2s;
     }
 
-    .project-links a:hover {
-      color: #fff;
-    }
+    .project-links a:hover { color: #fff; }
 
     /* Status badge */
     .status {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       padding: 2px 8px;
       border-radius: 4px;
       font-weight: 500;
@@ -124,32 +160,35 @@
 
     .status-dev { background: #2a2a1a; color: #ffd54f; }
     .status-live { background: #1b2a1b; color: #81c784; }
-    .status-planning { background: #1a1a2a; color: #90caf9; }
+    .status-ready { background: #1a2a1a; color: #a5d6a7; }
 
     /* Footer */
     .footer {
       text-align: center;
-      margin-top: 60px;
+      margin-top: 48px;
       padding-top: 24px;
       border-top: 1px solid #222;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 12px;
     }
 
     .footer a {
       color: #666;
       text-decoration: none;
-      margin: 0 12px;
       font-size: 0.9rem;
       transition: color 0.2s;
     }
 
     .footer a:hover { color: #fff; }
 
-    /* Contact */
-    .contact {
-      text-align: center;
-      margin-top: 16px;
-      color: #555;
-      font-size: 0.85rem;
+    .footer .contact {
+      color: #444;
+      font-size: 0.8rem;
     }
 
     @media (max-width: 600px) {
@@ -163,9 +202,22 @@
   <div class="container">
     <header class="header">
       <h1>이한규</h1>
-      <p>iOS Developer</p>
+      <p class="role">Cross-Platform Developer</p>
+      <p class="bio">iOS, Android, Web을 아우르는 크로스플랫폼 개발자. Flutter와 Unity로 모바일 앱과 게임을 만들고, AI 에이전트 기반 개발 파이프라인을 운영합니다.</p>
     </header>
 
+    <div class="skills">
+      <span class="skill">Flutter</span>
+      <span class="skill">Unity</span>
+      <span class="skill">Swift</span>
+      <span class="skill">Dart</span>
+      <span class="skill">Supabase</span>
+      <span class="skill">Nakama</span>
+      <span class="skill">Cloudflare</span>
+      <span class="skill">Firebase</span>
+    </div>
+
+    <p class="section-title">Projects</p>
     <section class="projects">
 
       <div class="project-card">
@@ -173,14 +225,48 @@
           <span class="project-name">GTR — Global Trader Run</span>
           <span class="status status-dev">개발 중</span>
         </div>
-        <p class="project-desc">실제 주식/날씨 데이터가 게임 경제에 반영되는 힐링 모바일 게임. 6개국 실시간 데이터, NPC 편지, 방 꾸미기.</p>
         <div class="project-tags">
           <span class="tag tag-unity">Unity</span>
           <span class="tag tag-nakama">Nakama</span>
           <span class="tag tag-ios">iOS</span>
         </div>
+        <p class="project-desc">6개국 실시간 주식/날씨 데이터가 게임 경제에 반영되는 3D 무한러너 + 수집형 RPG. 6개 서브팀 병렬 개발.</p>
         <div class="project-links">
           <a href="https://github.com/kyustudyo/GTR">GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name">밥먹어쒀</span>
+          <span class="status status-ready">배포 준비</span>
+        </div>
+        <div class="project-tags">
+          <span class="tag tag-flutter">Flutter</span>
+          <span class="tag tag-supabase">Supabase</span>
+          <span class="tag tag-ios">iOS</span>
+        </div>
+        <p class="project-desc">친구/연인 간 건강 루틴(영양제, 수면, 운동)을 달력으로 공유하는 앱. 구글 로그인, 실시간 동기화.</p>
+        <div class="project-links">
+          <a href="https://bob.pages.dev">Web</a>
+          <a href="https://github.com/kyustudyo/bob">GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name">어디에둘까 (Place)</span>
+          <span class="status status-ready">배포 준비</span>
+        </div>
+        <div class="project-tags">
+          <span class="tag tag-flutter">Flutter</span>
+          <span class="tag tag-ios">iOS</span>
+          <span class="tag tag-web">Web</span>
+        </div>
+        <p class="project-desc">3D 아이소메트릭 방에서 가구를 드래그&드롭으로 배치하는 도구. JSON 입출력, Unity 파이프라인 연동.</p>
+        <div class="project-links">
+          <a href="https://place-cbp.pages.dev">Web</a>
+          <a href="https://github.com/kyustudyo/place">GitHub</a>
         </div>
       </div>
 
@@ -189,53 +275,57 @@
           <span class="project-name">Measure</span>
           <span class="status status-live">배포됨</span>
         </div>
-        <p class="project-desc">레퍼런스 이미지에서 가구 높이 비율을 측정하고 JSON으로 출력하는 도구. AI 에이전트와 Unity 연동.</p>
         <div class="project-tags">
           <span class="tag tag-flutter">Flutter</span>
           <span class="tag tag-web">Web</span>
           <span class="tag tag-ios">iOS</span>
         </div>
+        <p class="project-desc">레퍼런스 이미지에서 기준 높이 대비 가구 비율을 측정하고 JSON으로 출력. AI 에이전트 → Unity 연동.</p>
         <div class="project-links">
-          <a href="https://measure-cwm.pages.dev">Live</a>
+          <a href="https://measure-cwm.pages.dev">Web</a>
           <a href="https://github.com/kyustudyo/measure">GitHub</a>
         </div>
       </div>
 
       <div class="project-card">
         <div class="project-header">
-          <span class="project-name">밥먹어쒀</span>
-          <span class="status status-planning">기획 완료</span>
+          <span class="project-name">VoiceMime</span>
+          <span class="status status-dev">개발 중</span>
         </div>
-        <p class="project-desc">친구/연인 간 건강 루틴(영양제, 수면, 운동)을 달력으로 공유하는 앱.</p>
         <div class="project-tags">
           <span class="tag tag-flutter">Flutter</span>
-          <span class="tag tag-supabase">Supabase</span>
           <span class="tag tag-ios">iOS</span>
         </div>
+        <p class="project-desc">영상/녹음 음성 분석 → 피치 시각화 → 속도 조절 따라하기 → 내 목소리 비교. 온디바이스, 서버 없음.</p>
         <div class="project-links">
-          <a href="https://github.com/kyustudyo/bob">GitHub</a>
+          <a href="https://voicemime.pages.dev">Web</a>
+          <a href="https://github.com/kyustudyo/voicemime">GitHub</a>
         </div>
       </div>
 
       <div class="project-card">
         <div class="project-header">
-          <span class="project-name">UAPS</span>
-          <span class="status status-dev">개발 중</span>
+          <span class="project-name">Interview Prep</span>
+          <span class="status status-live">배포됨</span>
         </div>
-        <p class="project-desc">유니버설 앱 플랫폼 서비스.</p>
         <div class="project-tags">
+          <span class="tag tag-html">HTML/JS</span>
           <span class="tag tag-web">Web</span>
         </div>
+        <p class="project-desc">채용 공고 기반 면접 대비 퀴즈 자동 생성. 오답노트, 결과 누적 관리.</p>
         <div class="project-links">
-          <a href="https://github.com/kyustudyo/Uaps">GitHub</a>
+          <a href="https://interview-prep-1rb.pages.dev">Web</a>
+          <a href="https://github.com/kyustudyo/interview-prep">GitHub</a>
         </div>
       </div>
 
     </section>
 
     <footer class="footer">
-      <a href="https://github.com/kyustudyo">GitHub</a>
-      <div class="contact">kyustudyo@github</div>
+      <div class="footer-links">
+        <a href="https://github.com/kyustudyo">GitHub</a>
+      </div>
+      <p class="contact">kyustudyo@gmail.com</p>
     </footer>
   </div>
 </body>
