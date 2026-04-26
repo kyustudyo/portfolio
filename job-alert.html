@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Alert — 포트폴리오</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Karla', -apple-system, sans-serif;
+  background: linear-gradient(135deg, #fce4ec 0%, #e8eaf6 35%, #e0f2f1 65%, #f3e5f5 100%);
+  background-attachment: fixed;
+  color: #333;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+
+.back-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin: 24px 0 0;
+  font-size: 14px; font-weight: 500; color: #7c4dff;
+  text-decoration: none; transition: opacity 0.2s;
+}
+.back-link:hover { opacity: 0.7; }
+
+.hero { padding: 32px 0 24px; }
+.hero h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 36px; font-weight: 800; line-height: 1.1;
+  margin-bottom: 8px;
+}
+.hero .badge {
+  display: inline-block;
+  font-size: 12px; font-weight: 600;
+  padding: 4px 12px; border-radius: 20px;
+  background: rgba(0,0,0,0.06); color: #999;
+  margin-bottom: 12px;
+}
+.hero .tags {
+  font-size: 13px; color: #aaa; margin-bottom: 16px;
+}
+.hero .desc {
+  font-size: 15px; line-height: 1.8; color: #666;
+}
+
+.section { margin: 32px 0; }
+.section h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px; font-weight: 700; color: #222;
+  margin-bottom: 16px;
+}
+
+.screenshot-grid {
+  display: flex; flex-direction: column; gap: 20px;
+}
+.screenshot-card {
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(255,255,255,0.7);
+  border-radius: 20px;
+  padding: 16px;
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+}
+.screenshot-card img {
+  width: 100%; height: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.screenshot-label {
+  margin-top: 10px;
+  font-size: 14px; font-weight: 600; color: #333;
+}
+.screenshot-desc {
+  font-size: 13px; color: #888; margin-top: 2px;
+}
+
+.features {
+  list-style: none;
+  display: grid; gap: 10px;
+}
+.features li {
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(255,255,255,0.7);
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-size: 14px; color: #555;
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+}
+.features li strong {
+  color: #333; font-weight: 600;
+}
+
+footer {
+  text-align: center; padding: 32px 0 48px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  margin-top: 40px;
+}
+footer a {
+  font-size: 14px; color: #aaa; text-decoration: none;
+}
+footer a:hover { color: #7c4dff; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <a href="index.html" class="back-link">&larr; 포트폴리오로 돌아가기</a>
+
+  <div class="hero">
+    <h1>Job Alert</h1>
+    <span class="badge">비공개 프로젝트</span>
+    <div class="tags">Python / FastAPI / BeautifulSoup / HTML</div>
+    <p class="desc">잡코리아·사람인·원티드·워크넷 4대 채용 사이트를 동시에 크롤링하는 채용공고 통합 검색 도구. 키워드를 입력하면 실시간으로 채용공고를 수집하고, 플랫폼별 필터와 추천 키워드 칩으로 빠르게 탐색할 수 있습니다.</p>
+  </div>
+
+  <div class="section">
+    <h2>스크린샷</h2>
+    <div class="screenshot-grid">
+      <div class="screenshot-card">
+        <img src="screenshots/job-alert-main.png" alt="메인 검색 화면">
+        <div class="screenshot-label">메인 검색 화면</div>
+        <div class="screenshot-desc">키워드 검색, 플랫폼 필터(잡코리아·사람인·원티드·워크넷), 추천 키워드 칩</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>주요 기능</h2>
+    <ul class="features">
+      <li><strong>4대 채용 사이트 동시 크롤링</strong> — 잡코리아, 사람인, 원티드, 워크넷을 한 번에 검색</li>
+      <li><strong>실시간 크롤링 상태</strong> — 검색 진행 상황을 실시간으로 표시</li>
+      <li><strong>플랫폼 필터</strong> — 특정 사이트만 선택하여 결과 필터링</li>
+      <li><strong>추천 키워드 칩</strong> — 자주 쓰는 키워드 원탭 검색, 토글로 조합</li>
+      <li><strong>FastAPI 백엔드</strong> — 비동기 크롤링으로 빠른 응답</li>
+    </ul>
+  </div>
+
+  <footer>
+    <a href="index.html">&larr; 포트폴리오</a>
+  </footer>
+</div>
+
+</body>
+</html>
