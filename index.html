@@ -176,6 +176,22 @@ body {
 }
 .project-links a:hover { opacity: 0.8; }
 
+.project-screenshots {
+  display: flex; gap: 10px; margin-bottom: 16px; overflow-x: auto;
+  -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory;
+  padding: 4px 0;
+}
+.project-screenshots img {
+  width: 160px; height: auto; border-radius: 12px;
+  border: 1px solid var(--card-border); scroll-snap-align: start;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.private-label {
+  font-size: 11px; font-weight: 600;
+  padding: 3px 10px; border-radius: 20px;
+  background: rgba(128,128,128,0.15); color: var(--text-muted);
+}
+
 footer {
   text-align: center; padding: 32px 0 48px;
   border-top: 1px solid var(--footer-border, var(--card-border));
@@ -618,6 +634,20 @@ footer .contact { display: block; margin-top: 8px; color: var(--text-muted); fon
       <div class="project-links">
         <a href="https://ios-dev-docs.pages.dev" target="_blank">Web</a>
       </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-name">Interview Prep</span>
+        <span class="project-status">비공개</span>
+      </div>
+      <div class="project-tags">HTML / CSS / JS / LocalStorage</div>
+      <p class="project-desc">채용 공고를 분석해 맞춤형 면접 퀴즈를 자동 생성하는 도구. 회사별 퀴즈 누적, 난이도별 문제 출제, 코드 하이라이팅, 오답노트 기능 포함. localStorage 기반으로 서버 없이 동작하며, 답변 작성 → 정답·핵심 포인트 확인 → 오답 체크의 학습 사이클을 지원.</p>
+      <div class="project-screenshots">
+        <img src="screenshots/interview-quiz.png" alt="면접 퀴즈 화면">
+        <img src="screenshots/interview-answers.png" alt="정답·핵심 포인트 화면">
+      </div>
+      <span class="private-label">비공개 — 스크린샷만 제공</span>
     </div>
 
     <div class="project-card">
