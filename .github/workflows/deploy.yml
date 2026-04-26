@@ -18,6 +18,8 @@ jobs:
           mkdir -p _deploy
           cp index.html _deploy/
           cp -r assets _deploy/assets 2>/dev/null || true
+          cp -r screenshots _deploy/screenshots 2>/dev/null || true
+          cp interview-prep.html _deploy/ 2>/dev/null || true
 
       - uses: cloudflare/wrangler-action@v3
         with:
