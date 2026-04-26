@@ -24,3 +24,20 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy _deploy --project-name kyustudyo-portfolio
+
+      - name: 배포 성공 알림
+        if: success()
+        continue-on-error: true
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+            -d chat_id="${{ secrets.TELEGRAM_CI_CHAT_ID }}" \
+            -d text="${{ github.event.repository.name }} - 배포성공"
+
+      - name: 배포 실패 알림
+        if: failure()
+        continue-on-error: true
+        run: |
+          SAFE_MSG=$(echo "${{ github.event.head_commit.message }}" | tr -d "<>" | head -c 80 | tr "\n" " ")
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+            -d chat_id="${{ secrets.TELEGRAM_CI_CHAT_ID }}" \
+            -d text="${{ github.event.repository.name }} - 배포실패 (${SAFE_MSG})"
