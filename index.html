@@ -500,6 +500,43 @@ footer .contact { display: block; margin-top: 8px; color: var(--text-muted); fon
 [data-theme="v15"] .project-card { background: linear-gradient(145deg, #1a1a1a, #161616); }
 [data-theme="v15"] .skill-tag:hover { border-color: #f59e0b; color: #f59e0b; }
 [data-theme="v15"] .project-links a { border: 1px solid rgba(245,158,11,0.2); border-radius: 10px; }
+
+/* ===== iOS Personal Projects (resume) ===== */
+.resume-intro {
+  font-size: 14px; color: var(--text-secondary); line-height: 1.7;
+  text-align: center; max-width: 700px; margin: 0 auto 22px;
+}
+.resume-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 18px; }
+.resume-item {
+  display: flex; justify-content: space-between; align-items: center; gap: 14px;
+  padding: 14px 18px; flex-wrap: wrap;
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: var(--card-radius, 16px);
+  backdrop-filter: var(--card-blur, none); -webkit-backdrop-filter: var(--card-blur, none);
+  box-shadow: var(--card-shadow, none);
+}
+.resume-item .ri-main { font-size: 13.5px; color: var(--text-secondary); line-height: 1.6; flex: 1; min-width: 220px; }
+.resume-item .ri-main b { color: var(--heading-color); font-weight: 700; font-family: var(--heading-font); }
+.resume-item .ri-tag { display: block; font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+.resume-item a {
+  font-size: 13px; font-weight: 500; color: var(--link-color); text-decoration: none;
+  padding: 4px 12px; border-radius: 20px; background: var(--link-bg); white-space: nowrap;
+  transition: opacity 0.2s;
+}
+.resume-item a:hover { opacity: 0.8; }
+.resume-more {
+  font-size: 13.5px; color: var(--text-secondary); text-align: center; line-height: 1.7;
+  max-width: 720px; margin: 0 auto 22px;
+}
+.awards-line {
+  font-size: 13.5px; color: var(--text-secondary); text-align: center; line-height: 1.7;
+  padding: 14px 18px; margin-bottom: 8px;
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: var(--card-radius, 16px);
+  backdrop-filter: var(--card-blur, none); -webkit-backdrop-filter: var(--card-blur, none);
+  box-shadow: var(--card-shadow, none);
+}
+.awards-line b { color: var(--heading-color); font-weight: 700; }
 </style>
 </head>
 <body data-theme="v13">
@@ -655,6 +692,28 @@ footer .contact { display: block; margin-top: 8px; color: var(--text-muted); fon
     </div>
 
   </div>
+
+  <h2 class="projects-label">iOS 개인 프로젝트</h2>
+  <p class="resume-intro">애플 디벨로퍼 아카데미에서 데이트 코스 공유 앱, 정산앱 등 다양한 프로젝트의 팀을 직접 구성해 기획·개발했습니다.</p>
+
+  <div class="resume-list">
+    <div class="resume-item">
+      <span class="ri-main"><b>AI 면접 연습게임</b> — AI 면접 연습 게임. 전체 기획·개발 단독 진행.<span class="ri-tag">현재 다운로드 5.9만 달성 · SwiftUI</span></span>
+      <a href="https://apps.apple.com/kr/app/id1583782921" target="_blank">App Store</a>
+    </div>
+    <div class="resume-item">
+      <span class="ri-main"><b>군핏 (Mil_Fit)</b> — 국방부 데이터 활용 경진대회 출시작. 개발 팀장.<span class="ri-tag">장려상 · UIKit / SwiftUI</span></span>
+      <a href="https://apps.apple.com/kr/app/id1640985192" target="_blank">App Store</a>
+    </div>
+    <div class="resume-item">
+      <span class="ri-main"><b>Studian</b> — 이미지 기반 스케줄·목표 설정 앱. iOS 개발 시작 후 첫 UIKit 앱(단독 출시).<span class="ri-tag">UIKit / RxSwift</span></span>
+      <a href="https://apps.apple.com/kr/app/id1594552833" target="_blank">App Store</a>
+    </div>
+  </div>
+
+  <p class="resume-more">그 외 정산앱(돈,워리), 데이트 코스 공유 앱, 커스텀 키보드 앱, 2022 WWDC Student Challenge, ML 게임(Zombie Run) 등 다양한 프로젝트를 진행했습니다.</p>
+
+  <p class="awards-line"><b>수상</b> · 2022 국방부 데이터 활용 경진대회 (군핏, iOS 앱 출시) — 장려상</p>
 
   <footer>
     <a href="https://github.com/kyustudyo" target="_blank">github.com/kyustudyo</a>
