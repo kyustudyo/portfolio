@@ -554,6 +554,12 @@ footer .contact { display: block; margin-top: 8px; color: var(--text-muted); fon
   border: 1px solid var(--card-border); box-shadow: 0 2px 8px rgba(0,0,0,0.12);
   scroll-snap-align: start;
 }
+.card-video {
+  width: 100%; max-width: 320px; aspect-ratio: 16 / 9;
+  border: 1px solid var(--card-border); border-radius: 10px;
+  margin: 2px 0 12px; display: block;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
 </style>
 </head>
 <body data-theme="v13">
@@ -694,6 +700,7 @@ footer .contact { display: block; margin-top: 8px; color: var(--text-muted); fon
       </div>
       <div class="project-tags">Unity / C# / Photon / PC</div>
       <p class="project-desc">로봇을 조립해 대전하는 PC 실시간 전략(RTS) 게임.</p>
+      <iframe class="card-video" src="https://www.youtube-nocookie.com/embed/yxx3s7Y0Mks" title="UAPS 시연영상" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe>
       <div class="project-links">
         <a href="https://store.onstove.com/ko/games/103551" target="_blank">Stove Store</a>
         <a href="https://youtu.be/yxx3s7Y0Mks" target="_blank">시연영상</a>
