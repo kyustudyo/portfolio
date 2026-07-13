@@ -560,6 +560,40 @@ footer .contact { display: block; margin-top: 8px; color: var(--text-muted); fon
   margin: 2px 0 12px; display: block;
   box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
+
+/* ===== Lightbox ===== */
+.shot-row img { cursor: zoom-in; }
+.lightbox {
+  display: none; position: fixed; inset: 0; z-index: 3000;
+  background: rgba(0,0,0,0.9);
+  align-items: center; justify-content: center;
+  backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+}
+.lightbox.open { display: flex; }
+.lb-img {
+  max-width: 92vw; max-height: 88vh; border-radius: 12px;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.6); object-fit: contain; user-select: none;
+}
+.lb-btn {
+  position: fixed; background: rgba(255,255,255,0.14); color: #fff;
+  border: none; cursor: pointer; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%; backdrop-filter: blur(6px); transition: background 0.2s;
+}
+.lb-btn:hover { background: rgba(255,255,255,0.28); }
+.lb-close { top: 18px; right: 18px; width: 44px; height: 44px; font-size: 26px; }
+.lb-prev, .lb-next { top: 50%; transform: translateY(-50%); width: 48px; height: 48px; font-size: 22px; }
+.lb-prev { left: 16px; }
+.lb-next { right: 16px; }
+.lb-counter {
+  position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%);
+  color: #fff; font-size: 13px; letter-spacing: 0.05em;
+  background: rgba(0,0,0,0.45); padding: 5px 14px; border-radius: 20px;
+}
+@media (max-width: 600px) {
+  .lb-prev { left: 8px; } .lb-next { right: 8px; }
+  .lb-prev, .lb-next { width: 40px; height: 40px; }
+}
 </style>
 </head>
 <body data-theme="v13">
@@ -784,6 +818,14 @@ footer .contact { display: block; margin-top: 8px; color: var(--text-muted); fon
 
 </div>
 
+<div class="lightbox" id="lightbox">
+  <button class="lb-btn lb-close" id="lb-close" aria-label="닫기">&times;</button>
+  <button class="lb-btn lb-prev" id="lb-prev" aria-label="이전">&#10094;</button>
+  <img class="lb-img" id="lb-img" alt="확대 화면">
+  <button class="lb-btn lb-next" id="lb-next" aria-label="다음">&#10095;</button>
+  <div class="lb-counter" id="lb-counter"></div>
+</div>
+
 <script>
 const THEMES = [
   { id:'v13', ko:'파스텔 글라스', en:'Pastel Glass', dots:['#fce4ec','#7c4dff','rgba(255,255,255,0.55)'] },
@@ -829,6 +871,41 @@ function toggleSettings() {
 const saved = localStorage.getItem('portfolio-theme');
 if (saved) document.body.dataset.theme = saved;
 renderThemeGrid();
+
+// Lightbox gallery — click a screenshot to enlarge, swipe/arrow to browse
+(function(){
+  const overlay = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lb-img');
+  const lbCounter = document.getElementById('lb-counter');
+  let group = [], idx = 0;
+  function render(){ lbImg.src = group[idx]; lbCounter.textContent = (idx+1) + ' / ' + group.length; }
+  function openLb(srcs, start){ group = srcs; idx = start; render(); overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeLb(){ overlay.classList.remove('open'); document.body.style.overflow = ''; }
+  function next(){ if(group.length){ idx = (idx+1) % group.length; render(); } }
+  function prev(){ if(group.length){ idx = (idx-1+group.length) % group.length; render(); } }
+  document.querySelectorAll('.shot-row').forEach(row => {
+    const imgs = [...row.querySelectorAll('img')];
+    const srcs = imgs.map(i => i.src);
+    imgs.forEach((img, i) => img.addEventListener('click', () => openLb(srcs, i)));
+  });
+  document.getElementById('lb-close').addEventListener('click', closeLb);
+  document.getElementById('lb-next').addEventListener('click', e => { e.stopPropagation(); next(); });
+  document.getElementById('lb-prev').addEventListener('click', e => { e.stopPropagation(); prev(); });
+  overlay.addEventListener('click', e => { if(e.target === overlay) closeLb(); });
+  document.addEventListener('keydown', e => {
+    if(!overlay.classList.contains('open')) return;
+    if(e.key === 'Escape') closeLb();
+    else if(e.key === 'ArrowRight') next();
+    else if(e.key === 'ArrowLeft') prev();
+  });
+  let sx = null;
+  overlay.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, {passive:true});
+  overlay.addEventListener('touchend', e => {
+    if(sx === null) return;
+    const dx = e.changedTouches[0].clientX - sx; sx = null;
+    if(Math.abs(dx) > 40){ dx < 0 ? next() : prev(); }
+  }, {passive:true});
+})();
 </script>
 </body>
 </html>
