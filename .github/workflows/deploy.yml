@@ -21,6 +21,7 @@ jobs:
           cp -r screenshots _deploy/screenshots 2>/dev/null || true
           cp interview-prep.html _deploy/ 2>/dev/null || true
           cp job-alert.html _deploy/ 2>/dev/null || true
+          cp resume.html _deploy/ 2>/dev/null || true
 
       - uses: cloudflare/wrangler-action@v3
         with:
